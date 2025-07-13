@@ -30,6 +30,18 @@ ip route del 0.0.0.0/1 dev ppp0
 ip route del 128.0.0.0/1 dev ppp0
 _EOF_
 
+if [ -z "$USERNAME" ] || [ -z "$PASSWORD" ]; then
+    echo "ERROR: USERNAME and PASSWORD environment variables must be set"
+    exit 1
+fi
+
+if id "$USERNAME" >/dev/null 2>&1; then
+    echo "User $USERNAME already exists"
+else
+    useradd -m "$USERNAME"
+    echo "$USERNAME:$PASSWORD" | chpasswd
+fi
+
 # fooo
 route add -net 192.168.0.0 netmask 255.255.0.0 gw 172.17.0.1
 
