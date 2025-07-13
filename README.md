@@ -16,7 +16,7 @@ $ docker build -t pptproxy . && docker run --rm -it \
   -e SERVER=us.hma.rocks \
   -e USERNAME=your_hma_username \
   -e PASSWORD=your_hma_password \
-  -p 1085:1080
+  -p 1085:1080 \
   --name pptproxy \
   pptproxy
 17e7d8869cccae6cccf5b28e28d87c6d3ebe0fd75044a23efd9c976ca0f1312e
