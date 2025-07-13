@@ -12,7 +12,7 @@ A simple container which provides SOCKS5 proxy over PPTP VPN.
 
 Run a proxy container named `proxy00` and obtain the IP address:
 ```
-$ docker build -t pptproxy . && docker run --rm -it \
+$ docker build -t pptproxy . && docker run --privileged -d \
   -e SERVER=us.hma.rocks \
   -e USERNAME=your_hma_username \
   -e PASSWORD=your_hma_password \
